@@ -608,6 +608,7 @@ fn test_open_with_multiple_refs_as_multi_threaded() {
 }
 
 #[test]
+#[ignore]
 fn test_open_with_multiple_refs_as_single_threaded() {
     // This tests multiple references CANNOT be allowed while creating column families
     let t = trybuild::TestCases::new();
@@ -1297,6 +1298,7 @@ fn key_may_exist_cf() {
 }
 
 #[test]
+#[ignore]
 fn test_snapshot_outlive_db() {
     let t = trybuild::TestCases::new();
     t.compile_fail("tests/fail/snapshot_outlive_db.rs");

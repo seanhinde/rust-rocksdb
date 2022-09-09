@@ -246,8 +246,8 @@ mod test {
         }
 
         is_send::<DB>();
-        is_send::<DBIterator<'_>>();
-        is_send::<DBRawIterator<'_>>();
+        is_send::<DBIterator>();
+        is_send::<DBRawIterator>();
         is_send::<Snapshot>();
         is_send::<Options>();
         is_send::<ReadOptions>();

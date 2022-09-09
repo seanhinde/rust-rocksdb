@@ -52,7 +52,7 @@ impl<'a, D: DBAccess> SnapshotWithThreadMode<'a, D> {
     }
 
     /// Creates an iterator over the data in this snapshot, using the default read options.
-    pub fn iterator(&self, mode: IteratorMode) -> DBIteratorWithThreadMode<'a, D> {
+    pub fn iterator(&self, mode: IteratorMode) -> DBIteratorWithThreadMode<D> {
         let readopts = ReadOptions::default();
         self.iterator_opt(mode, readopts)
     }
@@ -73,7 +73,7 @@ impl<'a, D: DBAccess> SnapshotWithThreadMode<'a, D> {
         &self,
         mode: IteratorMode,
         mut readopts: ReadOptions,
-    ) -> DBIteratorWithThreadMode<'a, D> {
+    ) -> DBIteratorWithThreadMode<D> {
         readopts.set_snapshot(self);
         DBIteratorWithThreadMode::<D>::new(self.db, readopts, mode)
     }
